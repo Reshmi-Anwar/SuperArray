@@ -24,7 +24,7 @@ class SuperArray{
     data[index] = element;
     return x;
   }
-  private void resize(){
+  private void resize() {
     String[] y = new String[data.length + 1];
     for(int i = 0; i < data.length; i++){
       y[i] = data[i];
