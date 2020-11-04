@@ -1,8 +1,8 @@
 class SuperArray{
   private String [] data;
   private int size;
-  public SuperArray(){
-    data = new String[10];
+  public SuperArray(int initialCapacity){
+    data = new String[initialCapacity];
     size = 0;
   }
   public int size(){
@@ -38,6 +38,25 @@ class SuperArray{
     else{
       return false;
     }
-
   }
+  public void clear(){
+    data = new String[size];
+    size = 0;
+  }
+  public String toString(){
+    String newResult = "[";
+    for(int i = 0; i < size - 1; i++){
+      newResult = newResult + data[i] + ", ";
+    }
+    return newResult + data[size - 1] + "]";
+  }
+  public boolean contains(String s){
+    for(int i = 0; i < size; i++){
+      if((data[i] == s) || (data[i].equals(s) && s != null)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
