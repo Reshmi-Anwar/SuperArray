@@ -84,5 +84,12 @@ class SuperArray{
     }
     return -1;
   }
+  public String[] toArray(){
+    String[] finalResultString = new String[size];
+    for(int i = 0; i < size; i++){
+      finalResultString[i] = data[i];
+    }
+    return finalResultString;
+  }
 
 }
