@@ -76,4 +76,13 @@ class SuperArray{
     size -= 1;
     return (removedNew);
   }
+  public int indexOf(String s){
+    for(int i =0; i < size; i++){
+      if (s == data[i] && data[i].equals(s)){
+        return i;
+      }
+    }
+    return -1;
+  }
+
 }
