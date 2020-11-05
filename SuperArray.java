@@ -52,11 +52,20 @@ class SuperArray{
   }
   public boolean contains(String s){
     for(int i = 0; i < size; i++){
-      if((data[i] == s) || (data[i].equals(s) && s != null)) {
+      if((data[i] == s) || (data[i].equals(s))) {
         return true;
       }
     }
     return false;
   }
-
+  public void add(int index, String element){
+    if (size == data.length){
+      resize();
+    }
+    for(int i = size; index < i; i--){
+      data[i] = data[i - 1];
+    }
+    data[index] = element;
+    size += 1;
+  }
 }
