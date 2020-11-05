@@ -23,6 +23,7 @@ class Tester{
     System.out.println(x.toString());//return [a, hello, b, x]
     x.remove(1);
     System.out.println(x.toString());//return [a, b, x]
-
+    System.out.println(x.indexOf("p"));//return -1
+    System.out.println(x.indexOf("x"));//return 2
   }
 }
