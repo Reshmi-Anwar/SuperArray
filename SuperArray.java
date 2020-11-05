@@ -62,10 +62,18 @@ class SuperArray{
     if (size == data.length){
       resize();
     }
-    for(int i = size; index < i; i--){
+    for(int i = size; index < i ; i--){
       data[i] = data[i - 1];
     }
     data[index] = element;
     size += 1;
+  }
+  public String remove (int index){
+    String removedNew = data[index];
+    for(int i = index; i < size -1; i++){
+      data[i] = data[i + 1];
+    }
+    size -= 1;
+    return (removedNew);
   }
 }
