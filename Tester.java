@@ -25,5 +25,7 @@ class Tester{
     System.out.println(x.toString());//return [a, b, x]
     System.out.println(x.indexOf("p"));//return -1
     System.out.println(x.indexOf("x"));//return 2
+    x.add(3, "y");
+    System.out.println(Arrays.toString(x.toArray()));//return [a,b,x,y]
   }
 }
