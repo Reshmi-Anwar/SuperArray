@@ -1,6 +1,9 @@
 class SuperArray{
   private String [] data;
   private int size;
+  public SuperArray(){
+  data = new String[10];
+  }
   public SuperArray(int initialCapacity){
     data = new String[initialCapacity];
     size = 0;
@@ -25,11 +28,11 @@ class SuperArray{
     return x;
   }
   private void resize() {
-    String[] y = new String[data.length + 1];
-    for(int i = 0; i < data.length; i++){
+    String[] y = new String[data.length * 2 + 1];
+    for(int i = 0; i < size; i++){
       y[i] = data[i];
-      data = y;
     }
+    data = y;
   }
   public boolean isEmpty(){
     if (size == 0){
@@ -44,6 +47,9 @@ class SuperArray{
     size = 0;
   }
   public String toString(){
+    if (size == 0){
+      return "[]";
+    }
     String newResult = "[";
     for(int i = 0; i < size - 1; i++){
       newResult = newResult + data[i] + ", ";
@@ -70,15 +76,16 @@ class SuperArray{
   }
   public String remove (int index){
     String removedNew = data[index];
-    for(int i = index; i < size -1; i++){
+    for(int i = index; i < size -  1; i++){
       data[i] = data[i + 1];
     }
     size -= 1;
+    data[size] = null;
     return (removedNew);
   }
   public int indexOf(String s){
-    for(int i =0; i < size; i++){
-      if (s == data[i] && data[i].equals(s)){
+    for(int i = 0; i < size; i++){
+      if (data[i].equals(s)){
         return i;
       }
     }
