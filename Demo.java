@@ -15,13 +15,14 @@ public class Demo{
     for(int i = 0; i < a.size(); i++){
       for(int j = 0; j < b.size(); j++){
         if (a.get(i) == b.get(i)){
-          //System.out.println(exists);
           overlapArray.add(index, a.get(i));
           index += 1;
         }
       }
     }
+    return overlapArray;
   }
+
 
   //traverse a: get first element and compare it to each element in b. if element in a = element in b, add it to superarray
 
@@ -46,6 +47,11 @@ public class Demo{
     }
     return true;
   }
+
+  public static SuperArray zip(SuperArray a, SuperArray b){
+    
+  }
+
 
 
   public static void main(String[]args){
