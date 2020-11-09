@@ -49,7 +49,35 @@ public class Demo{
   }
 
   public static SuperArray zip(SuperArray a, SuperArray b){
-    
+    SuperArray zipArray = new SuperArray();
+    int index = 0;
+    int g_i = 0;
+    //if a or b = empty
+    int Size_a = a.size();
+    int Size_b = b.size();
+    for(int i = 0; i < Size_a; i++){
+      if (i < Size_b){ //case where a is longer than b
+        zipArray.add(index, a.get(i));
+        index += 1;
+        zipArray.add(index, b.get(i));
+        index += 1;
+        g_i = i;
+      }
+      else{
+        break;
+      }
+    }
+    if (g_i >= b.size()){
+      return zipArray;
+    }
+    else{ //if b is longer than a
+      while(g_i < Size_b){
+        zipArray.add(index + 1, b.get(g_i));
+        g_i += 1;
+      }
+    }
+
+    return zipArray;
   }
 
 
