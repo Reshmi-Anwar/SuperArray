@@ -24,8 +24,6 @@ public class Demo{
   }
 
 
-  //traverse a: get first element and compare it to each element in b. if element in a = element in b, add it to superarray
-
 
   public int lastIndexOf(String value){
     for(int i = size - 1; i >= 0; i++){
@@ -49,34 +47,15 @@ public class Demo{
   }
 
   public static SuperArray zip(SuperArray a, SuperArray b){
-    SuperArray zipArray = new SuperArray();
-    int index = 0;
-    int g_i = 0;
-    //if a or b = empty
-    int Size_a = a.size();
-    int Size_b = b.size();
-    for(int i = 0; i < Size_a; i++){
-      if (i < Size_b){ //case where a is longer than b
-        zipArray.add(index, a.get(i));
-        index += 1;
-        zipArray.add(index, b.get(i));
-        index += 1;
-        g_i = i;
+    SuperArray zipArray = new SuperArray(a.size() + b.size());
+    for(int i = 0; i < Math.max(a.size(), b.size()); i++){
+      if(i < a.size()){
+        zipArray.add(a.get(i));
       }
-      else{
-        break;
+      if(i < b.size()){
+        zipArray.add(b.get(i));
       }
     }
-    if (g_i >= b.size()){
-      return zipArray;
-    }
-    else{ //if b is longer than a
-      while(g_i < Size_b){
-        zipArray.add(index + 1, b.get(g_i));
-        g_i += 1;
-      }
-    }
-
     return zipArray;
   }
 
